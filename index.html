@@ -109,6 +109,17 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 .parts{display:flex;flex-wrap:wrap;gap:6px;margin:-4px 0 12px}
 .parts button{font:600 .78rem var(--body);border:1.5px solid var(--pit-ink);background:transparent;color:var(--pit-ink);padding:3px 10px;cursor:pointer}
 .parts button[aria-pressed="true"]{background:var(--pit-ink);color:var(--c)}
+.player .open{position:absolute;inset:0;border:0;background:transparent;cursor:pointer;z-index:2}
+.player .open span{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.72);color:#fff;font:600 .75rem var(--body);padding:5px 10px}
+.player .open:hover span,.player .open:focus-visible span{background:var(--accent)}
+.player{transform:rotate(calc(var(--r,0deg) * -1))}
+.vp{max-width:min(1040px,calc(100vw - 32px));width:100%}
+.vp .frame{position:relative;aspect-ratio:16/9;background:#000}
+.vp iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vp .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;background:var(--c);color:var(--pit-ink);padding:14px 18px}
+.vp .bar h3{font-family:var(--hand);font-size:1.4rem;margin:0}
+.vp .bar .parts{margin:0}
+.vp .x{background:var(--pit-ink);color:var(--c);border:0;font:600 .85rem var(--body);padding:8px 14px;cursor:pointer}
 .note .q{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.72}
 .note .t{font-family:var(--hand);font-weight:700;font-size:1.32rem;line-height:1.18;margin:6px 0 8px}
 .note .s{font-family:var(--body);font-size:.92rem;line-height:1.5}
@@ -214,7 +225,7 @@ footer{padding-block:30px 40px;color:var(--muted);font-size:.85rem;border-top:1p
 <section id="trabalhos">
   <div class="sec-head">
     <h2>Trabalhos</h2>
-    <p>Histórias que pesquisei, apurei e roteirizei. Dê o play para assistir.</p>
+    <p>Histórias que pesquisei, apurei e roteirizei. Clique para assistir.</p>
   </div>
   <div class="board">
     <div class="legend">
@@ -244,6 +255,7 @@ footer{padding-block:30px 40px;color:var(--muted);font-size:.85rem;border-top:1p
 <footer>© Thaís Pinheiro · Roteirista e pesquisadora de personagem</footer>
 </div>
 
+<dialog id="vp" class="vp"><div class="frame"><iframe id="vpf" title="Vídeo" allow="autoplay; fullscreen" allowfullscreen></iframe></div><div class="bar" id="vpbar"></div></dialog>
 <dialog id="dlg"><div class="card" id="card"></div></dialog>
 
 <script>
@@ -300,16 +312,28 @@ LANES.forEach(L=>{
   L.items.forEach(it=>{
     const b=document.createElement('article');b.className='note live';
     b.style.setProperty('--c',L.c);b.style.setProperty('--r',tilts[k++%tilts.length]+'deg');
-    const parts=it.v.length>1?`<div class="parts">${it.v.map(([l,id],j)=>`<button type="button" data-id="${id}" aria-pressed="${j===0}">${esc(l)}</button>`).join('')}</div>`:'';
-    b.innerHTML=`<div class="player"><iframe src="https://drive.google.com/file/d/${it.v[0][1]}/preview" title="${esc(it.t)}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe></div>${parts}<div class="q">${esc(it.q)}</div><div class="t">${esc(it.t)}</div><div class="s">${esc(it.p)}</div>`;
-    b.querySelectorAll('.parts button').forEach(btn=>btn.addEventListener('click',()=>{
-      b.querySelector('iframe').src=`https://drive.google.com/file/d/${btn.dataset.id}/preview`;
-      b.querySelectorAll('.parts button').forEach(x=>x.setAttribute('aria-pressed',x===btn));
-    }));
+    const n=it.v.length>1?` · ${it.v.length} vídeos`:'';
+    b.innerHTML=`<div class="player"><iframe src="https://drive.google.com/file/d/${it.v[0][1]}/preview" title="${esc(it.t)}" loading="lazy" tabindex="-1"></iframe><button type="button" class="open" aria-label="Assistir ${esc(it.t)}"><span>▶ Assistir${n}</span></button></div><div class="q">${esc(it.q)}</div><div class="t">${esc(it.t)}</div><div class="s">${esc(it.p)}</div>`;
+    b.querySelector('.open').addEventListener('click',()=>openVideo(L,it));
     notes.appendChild(b);
   });
   lanes.appendChild(lane);
 });
+const vp=document.getElementById('vp'),vpf=document.getElementById('vpf'),vpbar=document.getElementById('vpbar');
+function openVideo(L,it){
+  vp.style.setProperty('--c',L.c);
+  const parts=it.v.length>1?`<div class="parts">${it.v.map(([l,id],j)=>`<button type="button" data-id="${id}" aria-pressed="${j===0}">${esc(l)}</button>`).join('')}</div>`:'';
+  vpbar.innerHTML=`<h3>${esc(it.t)}</h3>${parts}<button type="button" class="x">Fechar</button>`;
+  vpf.src=`https://drive.google.com/file/d/${it.v[0][1]}/preview`;
+  vpbar.querySelectorAll('.parts button').forEach(btn=>btn.addEventListener('click',()=>{
+    vpf.src=`https://drive.google.com/file/d/${btn.dataset.id}/preview`;
+    vpbar.querySelectorAll('.parts button').forEach(x=>x.setAttribute('aria-pressed',x===btn));
+  }));
+  vpbar.querySelector('.x').onclick=()=>vp.close();
+  vp.showModal();
+}
+vp.addEventListener('close',()=>{vpf.src='about:blank'});
+vp.addEventListener('click',e=>{if(e.target===vp)vp.close()});
 const dlg=document.getElementById('dlg'),card=document.getElementById('card');
 function openNote(L,it){
   card.style.setProperty('--c',L.c);
