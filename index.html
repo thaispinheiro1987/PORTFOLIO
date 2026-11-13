@@ -119,6 +119,19 @@ section{padding-block:72px;border-top:1px solid var(--line)}
 .vp .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;background:var(--c);color:var(--pit-ink);padding:14px 18px}
 .vp .bar h3{font-family:var(--hand);font-size:1.4rem;margin:0}
 .vp .bar .parts{margin:0}
+.vp{max-height:calc(100dvh - 32px);overflow:auto}
+.vp .more{background:var(--paper);color:var(--ink);padding:22px 24px 26px}
+.vp .more .lbl{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:8px}
+.vp .more p{margin:0;max-width:62ch;font-size:1rem;line-height:1.65}
+.note .more-btn{margin-top:12px;background:none;border:0;border-bottom:1.5px solid currentColor;padding:0 0 1px;font:600 .86rem var(--body);color:var(--pit-ink);cursor:pointer}
+.note .more-btn:hover{opacity:.7}
+@media (min-width:960px){
+  .vp.has-more{max-width:min(1320px,calc(100vw - 32px))}
+  .vp[open].has-more{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(300px,1fr);grid-template-rows:auto 1fr;overflow:hidden}
+  .vp.has-more .frame{grid-column:1;grid-row:1}
+  .vp.has-more .bar{grid-column:1;grid-row:2;align-self:stretch;align-items:flex-start}
+  .vp.has-more .more{grid-column:2;grid-row:1/3;overflow:auto;padding:28px 28px 30px}
+}
 .vp .x{background:var(--pit-ink);color:var(--c);border:0;font:600 .85rem var(--body);padding:8px 14px;cursor:pointer}
 .note .q{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;opacity:.72}
 .note .t{font-family:var(--hand);font-weight:700;font-size:1.32rem;line-height:1.18;margin:6px 0 8px}
@@ -255,20 +268,20 @@ footer{padding-block:30px 40px;color:var(--muted);font-size:.85rem;border-top:1p
 <footer>© Thaís Pinheiro · Roteirista e pesquisadora de personagem</footer>
 </div>
 
-<dialog id="vp" class="vp"><div class="frame"><iframe id="vpf" title="Vídeo" allow="autoplay; fullscreen" allowfullscreen></iframe></div><div class="bar" id="vpbar"></div></dialog>
+<dialog id="vp" class="vp"><div class="frame"><iframe id="vpf" title="Vídeo" allow="autoplay; fullscreen" allowfullscreen></iframe></div><div class="bar" id="vpbar"></div><div class="more" id="vpmore" hidden></div></dialog>
 <dialog id="dlg"><div class="card" id="card"></div></dialog>
 
 <script>
 const D=id=>"https://drive.google.com/file/d/"+id+"/view";
 const LANES=[
  {name:"Em Família com Eliana",yrs:"dez 2025 – hoje",c:"var(--pit-a)",items:[
-  {q:"Show em Família",t:"Família Moreira",s:"Do talento de um garoto, uma família inteira campeã.",
+  {q:"Show em Família",t:"Família Moreira",m:"Entrei na equipe que estava implementando o programa e, enquanto desenhávamos o formato da competição de família mais musical do Brasil, pesquisava os possíveis competidores. Um vídeo de Luiz Gabriel, descalço, cantando em um projeto social, nos chamou a atenção. Entrei em contato com a Secretaria de Cultura de Marabá para conseguir chegar até a família dele. Assustados com a repercussão do vídeo e com a chegada de pedidos de entrevistas, eles me atenderam, fizemos uma chamada de vídeo e fomos construindo essa confiança - o que nos permitiu ter a exclusividade sobre essa família. Para a gravação do VT perfil da família, fui até o Pará e conheci a realidade deles.",s:"Do talento de um garoto, uma família inteira campeã.",
    p:"O quadro “Show em Família” é o carro-chefe do programa. Atuei na pesquisa de personagem (famílias anônimas com talentos musicais) e também como roteirista na gravação dos VTs de perfil dos participantes, além de material de bastidores. Neste caso, a partir do talento de Luiz Gabriel, descobrimos uma família artística e carismática – que venceu a primeira edição do quadro.",
    v:[["Primeira apresentação","1i4G87fNkMAC2xCO2053hsYOHfRGEhGiR"]]},
-  {q:"Show em Família · 2ª temporada",t:"Família Moraes",s:"40 anos de carreira, nenhuma entrevista. Até agora.",
+  {q:"Show em Família · 2ª temporada",t:"Família Moraes",m:"Para a segunda temporada da competição, estávamos em busca de talentos que nos surpreendessem. Nessa pesquisa, encontrei uma cantora que me deixou bastante intrigada. Como ela era capaz de fazer tantas vozes e técnicas diferentes? Entrei em contato, mas Andrea não queria falar, era muito tímida, tinha medo do julgamento. Acolher esse sentimento também faz parte do nosso trabalho quando estamos na busca por histórias. Conversamos, ela se sentiu mais segura e topou o desafio de cantar com a família no programa.",s:"40 anos de carreira, nenhuma entrevista. Até agora.",
    p:"Na segunda temporada do quadro “Show em Família”, destaco a história de Andrea Moraes, uma cantora que tem 40 anos de carreira e que nunca deu entrevistas nem apareceu na TV por ser muito tímida. Com muita conversa e construção de uma relação de confiança, ela topou o desafio e é uma das estrelas da edição.",
    v:[["Apresentação","1dseJWwPger1OgOJ4WcykCTqqbVoxzgtK"],["A história da família","1I9dvFTunE9kZ-cZt_p_CTqgPjg_8dlWi"]]},
-  {q:"Revele o Hit",t:"Fãs do Revelação",s:"Dois apaixonados pelo grupo, testados pela Eliana.",
+  {q:"Revele o Hit",t:"Fãs do Revelação",m:"No dia a dia do programa, surgem demandas por pesquisa relacionadas aos mais variados conteúdos, desafios de última hora. Neste caso, precisava encontrar dois super fãs do Revelação, em São Paulo. A partir de uma busca nas redes sociais, identifiquei pessoas que tinham ido ao show do grupo e iniciei os contatos. Os dois se divertiram muito e entregaram tudo na brincadeira do palco.",s:"Dois apaixonados pelo grupo, testados pela Eliana.",
    p:"Em alguns quadros do programa, contribuo também com histórias de fãs dos artistas que estão no palco. Aqui, encontrei dois apaixonados pelo grupo Revelação.",
    v:[["Assistir","1FH0M-1vvdCMl3hAXe0If7xdoKXBp8dtV"]]}
  ]},
@@ -313,12 +326,14 @@ LANES.forEach(L=>{
     const b=document.createElement('article');b.className='note live';
     b.style.setProperty('--c',L.c);b.style.setProperty('--r',tilts[k++%tilts.length]+'deg');
     const n=it.v.length>1?` · ${it.v.length} vídeos`:'';
-    b.innerHTML=`<div class="player"><iframe src="https://drive.google.com/file/d/${it.v[0][1]}/preview" title="${esc(it.t)}" loading="lazy" tabindex="-1"></iframe><button type="button" class="open" aria-label="Assistir ${esc(it.t)}"><span>▶ Assistir${n}</span></button></div><div class="q">${esc(it.q)}</div><div class="t">${esc(it.t)}</div><div class="s">${esc(it.p)}</div>`;
+    b.innerHTML=`<div class="player"><iframe src="https://drive.google.com/file/d/${it.v[0][1]}/preview" title="${esc(it.t)}" loading="lazy" tabindex="-1"></iframe><button type="button" class="open" aria-label="Assistir ${esc(it.t)}"><span>▶ Assistir${n}</span></button></div><div class="q">${esc(it.q)}</div><div class="t">${esc(it.t)}</div><div class="s">${esc(it.p)}</div>${it.m?'<button type="button" class="more-btn">Saiba mais →</button>':''}`;
     b.querySelector('.open').addEventListener('click',()=>openVideo(L,it));
+    const mb=b.querySelector('.more-btn');if(mb)mb.addEventListener('click',()=>openVideo(L,it));
     notes.appendChild(b);
   });
   lanes.appendChild(lane);
 });
+const vpmore=document.getElementById('vpmore');
 const vp=document.getElementById('vp'),vpf=document.getElementById('vpf'),vpbar=document.getElementById('vpbar');
 function openVideo(L,it){
   vp.style.setProperty('--c',L.c);
@@ -330,6 +345,8 @@ function openVideo(L,it){
     vpbar.querySelectorAll('.parts button').forEach(x=>x.setAttribute('aria-pressed',x===btn));
   }));
   vpbar.querySelector('.x').onclick=()=>vp.close();
+  vpmore.hidden=!it.m;vp.classList.toggle('has-more',!!it.m);vpmore.innerHTML=it.m?`<div class="lbl">Bastidores da pesquisa</div><p>${esc(it.m)}</p>`:'';
+  vp.scrollTop=0;
   vp.showModal();
 }
 vp.addEventListener('close',()=>{vpf.src='about:blank'});
