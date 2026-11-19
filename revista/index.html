@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thaís Pinheiro</title>
+<meta name="description" content="Thaís Pinheiro, roteirista e pesquisadora de personagem na TV Globo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;0,6..96,900;1,6..96,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Archivo+Narrow:wght@500;600;700&display=swap">
+<style>
+/* Layout: a special-edition magazine. Masthead cover with cover lines, editor's letter, table of contents, then every story as a feature spread with its video. */
+:root{
+  --paper:#fbfaf8; --ink:#141414; --muted:#666461; --rule:#dedbd6; --tint:#f1efeb;
+  --red:#d4002a; --red-ink:#ffffff;
+  --s-a:#c9820a; --s-b:#c2185b; --s-c:#13866a;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --label:"Archivo Narrow","Arial Narrow",ui-sans-serif,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#131312; --ink:#efece6; --muted:#a29f99; --rule:#2e2d2b; --tint:#1c1b1a;
+  --red:#ff4a5f; --red-ink:#1a0005; --s-a:#f0b23d; --s-b:#f06a9c; --s-c:#4fcaa6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#131312; --ink:#efece6; --muted:#a29f99; --rule:#2e2d2b; --tint:#1c1b1a;
+  --red:#ff4a5f; --red-ink:#1a0005; --s-a:#f0b23d; --s-b:#f06a9c; --s-c:#4fcaa6; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.62}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.g{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.w{max-width:1240px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.95;margin:0;text-wrap:balance}
+.lab{font-family:var(--label);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+
+/* cover */
+.folio{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:16px 10px;border-bottom:1px solid var(--ink)}
+.folio span{font-family:var(--label);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.mast{font-size:clamp(3.4rem,13.6vw,11.8rem);letter-spacing:-.035em;line-height:.82;margin:18px 0 0;text-align:center;font-weight:900}
+.mast em{font-style:italic;font-weight:500;color:var(--red)}
+.cover{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr);gap:28px;align-items:center;padding-block:26px 46px;border-bottom:6px double var(--ink)}
+.cover figure{margin:0;position:relative}
+.cover figure img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 30%}
+.cover figure figcaption{position:absolute;right:-8px;bottom:22px;background:var(--red);color:var(--red-ink);font-family:var(--label);font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:10px 14px;font-size:.9rem;line-height:1.15;text-align:center}
+.cover figure figcaption b{display:block;font-family:var(--display);font-size:2.2rem;letter-spacing:0}
+.lines{display:flex;flex-direction:column;gap:26px}
+.lines a{text-decoration:none;display:block}
+.lines .lab{color:var(--red)}
+.lines .h{display:block;font-family:var(--display);font-weight:700;font-size:1.65rem;line-height:1.02;margin:4px 0}
+.lines .d{display:block;font-style:italic;color:var(--muted);font-size:.98rem;line-height:1.35}
+.lines a:hover .h{color:var(--red)}
+.lines.r{text-align:right}
+
+/* letter */
+section{padding-block:64px;border-bottom:1px solid var(--rule)}
+.sec-lab{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.sec-lab::after{content:"";flex:1;height:1px;background:var(--ink)}
+.letter{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:56px}
+.letter h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:26px}
+.letter h2 em{font-weight:500;color:var(--red)}
+.cols{column-count:2;column-gap:40px}
+.cols p{margin:0 0 1em;hyphens:auto}
+.cols p:first-child::first-letter{font-family:var(--display);font-weight:900;float:left;font-size:4.6em;line-height:.78;margin:.06em .1em 0 0;color:var(--red)}
+.sign{font-family:var(--display);font-style:italic;font-size:1.6rem;margin-top:8px}
+.exp{border:1px solid var(--ink);padding:22px 22px 18px;align-self:start}
+.exp h3{font-family:var(--label);font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:12px}
+.exp dl{margin:0}
+.exp dt{font-family:var(--label);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:12px;font-variant-numeric:tabular-nums}
+.exp dd{margin:0;font-weight:600;line-height:1.3}
+.exp dd small{display:block;font-weight:400;color:var(--muted);font-size:.86rem}
+.exp .edu{border-top:1px solid var(--rule);margin-top:16px;padding-top:12px;font-size:.88rem;color:var(--muted);line-height:1.4}
+
+/* toc */
+.toc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.toc h3{font-family:var(--label);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--sc);border-top:3px solid var(--sc);padding-top:10px;margin-bottom:6px}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc li a{display:grid;grid-template-columns:2.2em minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px solid var(--rule);text-decoration:none}
+.toc .n{font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1.1;color:var(--sc);font-variant-numeric:tabular-nums}
+.toc .tt{font-family:var(--display);font-weight:700;font-size:1.2rem;line-height:1.15}
+.toc .tt small{display:block;font-family:var(--label);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:3px}
+.toc a:hover .tt{color:var(--red)}
+
+/* features */
+.opener{padding-block:80px 30px;border-bottom:0;text-align:center}
+.opener .lab{color:var(--sc)}
+.opener h2{font-size:clamp(3rem,8vw,6.4rem);margin:10px 0 8px}
+.opener p{font-style:italic;color:var(--muted);margin:0}
+.feat{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:start;padding-block:54px}
+.feat.flip .media{order:2}
+.feat .media{position:sticky;top:24px}
+.feat .num{font-family:var(--display);font-weight:900;font-size:1rem;color:var(--sc)}
+.feat .lab{color:var(--sc)}
+.feat h3{font-size:clamp(2.3rem,4.4vw,3.6rem);margin:8px 0 14px}
+.feat .deck{font-style:italic;font-size:1.18rem;line-height:1.45;color:var(--muted);margin:0 0 22px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.feat .bodytxt p{margin:0}
+.feat .bodytxt p::first-letter{font-family:var(--display);font-weight:900;float:left;font-size:3.6em;line-height:.8;margin:.06em .08em 0 0;color:var(--sc)}
+.vid{position:relative;aspect-ratio:16/9;background:var(--tint);overflow:hidden}
+.vid button.poster{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:linear-gradient(135deg,var(--tint),color-mix(in srgb,var(--sc) 30%,var(--tint)));width:100%}
+.vid .poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vid .poster .pb{position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:10px;background:var(--paper);color:var(--ink);font-family:var(--label);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.82rem;padding:10px 14px}
+.vid .poster .pb svg{width:12px;height:12px;fill:var(--sc)}
+.vid .poster:hover .pb{background:var(--sc);color:#fff}
+.vid .poster:hover .pb svg{fill:#fff}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.caption{font-family:var(--label);font-size:.8rem;letter-spacing:.04em;color:var(--muted);margin-top:8px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.caption button{font:600 .76rem var(--label);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:4px 10px;cursor:pointer}
+.caption button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.sep{border:0;border-top:1px solid var(--rule);margin:0}
+
+/* spread */
+.spread{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:8px;padding-block:20px 64px;border-bottom:1px solid var(--rule)}
+.spread figure{margin:0;overflow:hidden}
+.spread img{width:100%;height:100%;object-fit:cover;display:block}
+.spread .tall{grid-row:span 2}
+.spread .cap{grid-column:span 2;align-self:center;padding:0 10px}
+.spread .cap .lab{color:var(--red)}
+.spread .cap p{font-family:var(--display);font-size:1.9rem;line-height:1.08;margin:8px 0 0;font-weight:700}
+
+/* contact */
+.classif{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.classif h2{font-size:clamp(2.8rem,6vw,5rem)}
+.classif h2 em{font-weight:500;color:var(--red)}
+.classif .box{border:2px solid var(--ink);padding:6px 22px}
+.row{display:grid;grid-template-columns:100px minmax(0,1fr) auto;gap:14px;align-items:center;padding-block:16px;border-bottom:1px solid var(--rule)}
+.row:last-child{border-bottom:0}
+.row .lab{color:var(--muted)}
+.row .v{font-family:var(--display);font-weight:700;font-size:1.3rem;user-select:all;overflow-wrap:anywhere;min-width:0}
+.btn{font:700 .78rem var(--label);letter-spacing:.12em;text-transform:uppercase;background:var(--red);color:var(--red-ink);border:0;padding:9px 14px;cursor:pointer;text-decoration:none}
+footer{padding-block:24px 36px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--label);font-size:.85rem;color:var(--muted)}
+footer a[aria-current]{color:var(--ink);font-weight:700}
+
+@media (max-width:960px){
+  .cover{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .cover figure{grid-column:1/-1;max-width:520px;justify-self:center;width:100%}
+  .lines.r{text-align:left}
+  .letter,.classif,.feat{grid-template-columns:minmax(0,1fr);gap:32px}
+  .feat.flip .media{order:0}
+  .feat .media{position:static}
+  .toc{grid-template-columns:minmax(0,1fr)}
+  .spread{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:180px}
+}
+@media (max-width:620px){
+  body{font-size:17px}
+  .cover{grid-template-columns:minmax(0,1fr)}
+  .cols{column-count:1}
+  .row{grid-template-columns:minmax(0,1fr) auto}
+  .row .lab{grid-column:1/-1}
+  .spread .cap{grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="g"><div class="w">
+  <header>
+    <div class="folio"><span>Edição especial · 20 anos de carreira</span><span>São Paulo · 2026</span></div>
+    <h1 class="mast" id="mast"></h1>
+    <div class="cover">
+      <div class="lines" id="linesL"></div>
+      <figure><img src="../assets/img/foto-02.jpg" alt="Thaís Pinheiro diante do painel do Troféu Melhores do Ano"><figcaption><b>10</b>anos de<br>TV Globo</figcaption></figure>
+      <div class="lines r" id="linesR"></div>
+    </div>
+  </header>
+
+  <section id="sobre">
+    <div class="sec-lab lab">Carta da roteirista</div>
+    <div class="letter">
+      <div>
+        <h2>Entre redações, entrevistas e <em>estúdios de TV</em></h2>
+        <div class="cols" id="about"></div>
+        <div class="sign" id="sign"></div>
+      </div>
+      <aside class="exp"><h3>Trajetória</h3><dl id="exp"></dl><div class="edu" id="edu"></div></aside>
+    </div>
+  </section>
+
+  <section id="indice">
+    <div class="sec-lab lab">Nesta edição</div>
+    <div class="toc" id="toc"></div>
+  </section>
+
+  <div id="stories"></div>
+
+  <section id="contato">
+    <div class="classif">
+      <div><div class="lab" style="color:var(--red)">Contato</div><h2 style="margin-top:10px">Pauta <em>aberta</em></h2><p style="font-style:italic;color:var(--muted)">Disponível para projetos de roteiro, pesquisa de personagem e conteúdo para TV e streaming.</p></div>
+      <div class="box">
+        <div class="row"><span class="lab">E-mail</span><span class="v" id="em"></span><button class="btn" type="button" id="cp">Copiar</button></div>
+        <div class="row"><span class="lab">Telefone</span><span class="v" id="tel"></span><a class="btn" id="wa" target="_blank" rel="noopener">WhatsApp</a></div>
+        <div class="row"><span class="lab">Base</span><span class="v" id="city"></span><span></span></div>
+      </div>
+    </div>
+  </section>
+  <footer><span>© Thaís Pinheiro</span><span>Versões: <a href="../">Mural</a> · <a href="../cinema/">Cinematográfica</a> · <a href="../revista/" aria-current="page">Revista</a> · <a href="../minimalista/">Minimalista</a></span></footer>
+</div></div>
+
+<script src="../assets/data.js"></script>
+<script>
+const P=window.PORTFOLIO,$=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const thumb=id=>`https://drive.google.com/thumbnail?id=${id}&sz=w1280`;
+const emb=id=>`https://drive.google.com/file/d/${id}/preview`;
+const play='<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>';
+const [first,...rest]=P.name.split(' ');
+$('mast').innerHTML=`${esc(first)} <em>${esc(rest.join(' '))}</em>`;
+$('about').innerHTML=P.about.map(p=>`<p>${p}</p>`).join('');
+$('sign').textContent='— '+P.name;
+$('exp').innerHTML=P.timeline.map(t=>`<dt>${esc(t.when)}</dt><dd>${esc(t.what)}<small>${esc(t.role)}</small></dd>`).join('');
+$('edu').innerHTML=P.education.map(e=>`<strong>${esc(e.course)}</strong>, ${esc(e.where)} (${esc(e.when)})`).join('<br>');
+$('em').textContent=P.contact.email;$('tel').textContent=P.contact.phone;$('city').textContent=P.contact.city;$('wa').href=P.contact.whatsapp;
+$('cp').onclick=()=>{const b=$('cp');const ok=()=>{b.textContent='Copiado';setTimeout(()=>b.textContent='Copiar',1600)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents($('em'));getSelection().removeAllRanges();getSelection().addRange(r)};
+  try{navigator.clipboard.writeText(P.contact.email).then(ok,sel)}catch(e){sel()}};
+
+// numbering + cover lines
+let n=0;const all=[];
+P.programs.forEach(pg=>pg.items.forEach(it=>{n++;all.push({pg,it,n,slug:'h'+n})}));
+const pick=t=>all.find(x=>x.it.title===t);
+const coverL=[["Família Moraes","40 anos de carreira, nenhuma entrevista. Até agora"],["Transplante","A história que dividia a equipe e chegou ao palco"],["A história do Nininho","Sozinha em Monte Santo, com câmera na mão"]];
+const coverR=[["Família Moreira","Do vídeo de um menino descalço à família campeã"],["O fusca “Furioso”","Quem disse que um raio não cai duas vezes?"],["Cheerleaders","A doutoranda que topou o desafio do palco"]];
+const line=([t,d])=>{const x=pick(t);return x?`<a href="#${x.slug}"><span class="lab">${esc(x.pg.name)}</span><span class="h">${esc(x.it.title)}</span><span class="d">${esc(d)}</span></a>`:''};
+$('linesL').innerHTML=coverL.map(line).join('');$('linesR').innerHTML=coverR.map(line).join('');
+// toc
+$('toc').innerHTML=P.programs.map(pg=>`<div style="--sc:var(--s-${pg.key})"><h3>${esc(pg.name)}</h3><ol>${all.filter(x=>x.pg===pg).map(x=>`<li><a href="#${x.slug}"><span class="n">${String(x.n).padStart(2,'0')}</span><span class="tt">${esc(x.it.title)}<small>${esc(x.it.kicker)}</small></span></a></li>`).join('')}</ol></div>`).join('');
+// stories
+const st=$('stories');let flip=false;
+const spreadAfter=1; // photo spread after the 2nd program
+P.programs.forEach((pg,pi)=>{
+  const sec=document.createElement('div');sec.style.setProperty('--sc',`var(--s-${pg.key})`);
+  sec.innerHTML=`<section class="opener"><div class="lab">Capítulo ${pi+1} · ${esc(pg.years)}</div><h2>${esc(pg.name)}</h2></section>`;
+  all.filter(x=>x.pg===pg).forEach((x,j)=>{
+    const it=x.it;
+    const a=document.createElement('article');a.className='feat'+(flip?' flip':'');a.id=x.slug;flip=!flip;
+    const parts=it.videos.length>1?it.videos.map((v,k)=>`<button type="button" data-id="${v.id}" aria-pressed="${!k}">${esc(v.label)}</button>`).join(''):'';
+    a.innerHTML=`<div class="media"><div class="vid"><button type="button" class="poster" aria-label="Assistir ${esc(it.title)}"><img src="${thumb(it.videos[0].id)}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="pb">${play} Assistir</span></button></div><div class="caption">${parts||esc(pg.name)+' · TV Globo'}</div></div>
+    <div><div class="num">${String(x.n).padStart(2,'0')}</div><div class="lab">${esc(it.kicker)}</div><h3>${esc(it.title)}</h3><p class="deck">${esc(it.summary)}</p>${it.more?`<div class="bodytxt"><p>${esc(it.more)}</p></div>`:''}</div>`;
+    a.querySelector('.poster img').onerror=e=>e.target.remove();
+    const vid=a.querySelector('.vid');
+    const load=id=>{vid.innerHTML=`<iframe src="${emb(id)}" title="${esc(it.title)}" allow="autoplay; fullscreen" allowfullscreen></iframe>`};
+    a.querySelector('.poster').onclick=()=>load((a.querySelector('.caption button[aria-pressed="true"]')||{}).dataset?.id||it.videos[0].id);
+    a.querySelectorAll('.caption button').forEach(b=>b.onclick=()=>{a.querySelectorAll('.caption button').forEach(y=>y.setAttribute('aria-pressed',y===b));load(b.dataset.id)});
+    sec.appendChild(a);
+    if(j<all.filter(y=>y.pg===pg).length-1){const hr=document.createElement('hr');hr.className='sep';sec.appendChild(hr)}
+  });
+  st.appendChild(sec);
+  if(pi===spreadAfter){
+    const ph=P.photos;const sp=document.createElement('div');sp.className='spread';
+    const f=(i,c='')=>`<figure class="${c}"><img src="../assets/img/${ph[i].src}" alt="" loading="lazy" style="object-position:${ph[i].pos}"></figure>`;
+    sp.innerHTML=f(3,'tall')+`<div class="cap"><div class="lab">Ensaio</div><p>Dez anos de bastidores, palcos e estúdios na TV Globo.</p></div>`+f(5,'tall')+f(2)+f(4)+f(6)+f(7)+f(8)+f(0);
+    st.appendChild(sp);
+  }
+});
+</script>
+</body>
+</html>

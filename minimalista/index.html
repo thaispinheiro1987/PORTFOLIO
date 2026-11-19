@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thaís Pinheiro</title>
+<meta name="description" content="Thaís Pinheiro, roteirista e pesquisadora de personagem na TV Globo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one left-aligned reading column, like a well-kept index card file. Works listed as rows that open in place with the video and the story. */
+:root{
+  --bg:#ffffff; --fg:#121413; --muted:#6a706d; --faint:#9aa09d; --line:#e7e9e8; --hover:#f5f7f6;
+  --accent:#1d6b52;
+  --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1110; --fg:#e8ebe9; --muted:#9aa29e; --faint:#6b726e; --line:#232725; --hover:#161917; --accent:#62c4a0; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1110; --fg:#e8ebe9; --muted:#9aa29e; --faint:#6b726e; --line:#232725; --hover:#161917; --accent:#62c4a0; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.65;
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+img{max-width:100%}
+a{color:var(--fg);text-decoration-color:var(--faint);text-underline-offset:3px}
+a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+main{max-width:760px;margin:0 auto;padding-block:72px 40px}
+h1,h2{font-weight:500;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.m{font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.01em}
+
+header h1{font-size:2.4rem;line-height:1.1}
+header .roles{margin:8px 0 22px;color:var(--muted)}
+header .lede{font-size:1.18rem;line-height:1.55;margin:0;max-width:36em}
+.photos{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px;margin:40px 0 0}
+.photos img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(1);transition:filter .3s ease;border-radius:2px}
+.photos img:hover{filter:none}
+
+section{margin-top:76px}
+section>h2{font-size:.78rem;font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:22px}
+.prose p{margin:0 0 1.1em;max-width:62ch}
+
+.cv{list-style:none;margin:0;padding:0}
+.cv li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding-block:10px;border-bottom:1px solid var(--line)}
+.cv li:last-child{border-bottom:0}
+.cv .what{font-weight:500}
+.cv .what span{display:block;color:var(--muted);font-weight:400;font-size:.94rem}
+.cv .m{padding-top:3px;font-variant-numeric:tabular-nums}
+
+.prog{margin-bottom:36px}
+.prog-h{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:6px}
+.prog-h h3{font-size:1rem;font-weight:600;margin:0}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:grid;grid-template-columns:minmax(0,1fr) auto 20px;gap:14px;align-items:baseline;padding:14px 10px;margin-inline:-10px;cursor:pointer;border-radius:3px}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--hover)}
+summary .t{font-weight:500}
+summary .ic{font-family:var(--mono);color:var(--faint);text-align:right;transition:transform .2s ease}
+details[open] summary .ic{transform:rotate(45deg);color:var(--accent)}
+details[open] summary .t{color:var(--accent)}
+.body{padding:4px 0 26px}
+.frame{position:relative;aspect-ratio:16/9;background:var(--hover);border-radius:3px;overflow:hidden}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.parts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.parts button{font:500 .78rem var(--mono);background:transparent;color:var(--muted);border:1px solid var(--line);padding:4px 10px;border-radius:999px;cursor:pointer}
+.parts button[aria-pressed="true"]{color:var(--bg);background:var(--fg);border-color:var(--fg)}
+.body .sum{margin:18px 0 12px;max-width:62ch}
+.body .mor{margin:0;max-width:62ch;color:var(--muted)}
+.body .lbl{display:block;margin-top:18px;margin-bottom:4px}
+
+.contact{list-style:none;margin:0;padding:0}
+.contact li{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:18px;align-items:baseline;padding-block:10px;border-bottom:1px solid var(--line)}
+.contact li:last-child{border-bottom:0}
+.contact .v{user-select:all;overflow-wrap:anywhere;font-weight:500;min-width:0}
+.lnk{font:500 .8rem var(--mono);background:none;border:0;color:var(--accent);cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px}
+footer{max-width:760px;margin:0 auto;padding-block:30px 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer a[aria-current]{color:var(--accent)}
+
+@media (max-width:620px){
+  main{padding-block:44px 30px}
+  header h1{font-size:2rem}
+  .photos{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .photos img:nth-child(n+6){display:none}
+  .cv li,.contact li{grid-template-columns:minmax(0,1fr) auto;gap:2px 14px}
+  .cv li .m{grid-column:1/-1;order:-1}
+  .contact li .m{grid-column:1/-1}
+  summary{grid-template-columns:minmax(0,1fr) 20px}
+  summary .m{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="nm"></h1>
+    <div class="roles" id="roles"></div>
+    <p class="lede" id="lede"></p>
+    <div class="photos" id="photos"></div>
+  </header>
+
+  <section id="trabalhos">
+    <h2>Trabalhos</h2>
+    <p class="m" style="margin:-8px 0 22px">Histórias que pesquisei, apurei e roteirizei. Clique para assistir.</p>
+    <div id="works"></div>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre</h2>
+    <div class="prose" id="about"></div>
+  </section>
+
+  <section id="trajetoria">
+    <h2>Trajetória</h2>
+    <ul class="cv" id="cv"></ul>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <ul class="contact">
+      <li><span class="m">E-mail</span><span class="v" id="em"></span><button class="lnk" type="button" id="cp">copiar</button></li>
+      <li><span class="m">Telefone</span><span class="v" id="tel"></span><a class="lnk" id="wa" target="_blank" rel="noopener">whatsapp</a></li>
+      <li><span class="m">Base</span><span class="v" id="city"></span><span></span></li>
+    </ul>
+  </section>
+</main>
+<footer class="m"><span>© Thaís Pinheiro</span><span>Versões: <a href="../">Mural</a> · <a href="../cinema/">Cinematográfica</a> · <a href="../revista/">Revista</a> · <a href="../minimalista/" aria-current="page">Minimalista</a></span></footer>
+
+<script src="../assets/data.js"></script>
+<script>
+const P=window.PORTFOLIO,$=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const emb=id=>`https://drive.google.com/file/d/${id}/preview`;
+$('nm').textContent=P.name;$('roles').textContent=P.roles.join(' · ');$('lede').textContent=P.lede;
+$('photos').innerHTML=P.photos.map(p=>`<img src="../assets/img/${p.src}" alt="" loading="lazy" style="object-position:${p.pos}">`).join('');
+$('about').innerHTML=P.about.map(p=>`<p>${p}</p>`).join('');
+$('cv').innerHTML=P.timeline.map(t=>`<li><span class="m">${esc(t.when)}</span><span class="what">${esc(t.what)}<span>${esc(t.role)}</span></span></li>`).join('')+
+  P.education.map(e=>`<li><span class="m">${esc(e.when)}</span><span class="what">${esc(e.course)}<span>${esc(e.where)}</span></span></li>`).join('');
+$('em').textContent=P.contact.email;$('tel').textContent=P.contact.phone;$('city').textContent=P.contact.city;$('wa').href=P.contact.whatsapp;
+$('cp').onclick=()=>{const b=$('cp');const ok=()=>{b.textContent='copiado';setTimeout(()=>b.textContent='copiar',1600)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents($('em'));getSelection().removeAllRanges();getSelection().addRange(r)};
+  try{navigator.clipboard.writeText(P.contact.email).then(ok,sel)}catch(e){sel()}};
+const works=$('works');
+P.programs.forEach(pg=>{
+  const g=document.createElement('div');g.className='prog';
+  g.innerHTML=`<div class="prog-h"><h3>${esc(pg.name)}</h3><span class="m">${esc(pg.years)}</span></div>`;
+  pg.items.forEach(it=>{
+    const d=document.createElement('details');
+    const parts=it.videos.length>1?`<div class="parts">${it.videos.map((v,k)=>`<button type="button" data-id="${v.id}" aria-pressed="${!k}">${esc(v.label)}</button>`).join('')}</div>`:'';
+    d.innerHTML=`<summary><span class="t">${esc(it.title)}</span><span class="m">${esc(it.kicker)}</span><span class="ic" aria-hidden="true">+</span></summary>
+    <div class="body"><div class="frame"></div>${parts}<p class="sum">${esc(it.summary)}</p>${it.more?`<span class="m lbl">Bastidores da pesquisa</span><p class="mor">${esc(it.more)}</p>`:''}</div>`;
+    const fr=d.querySelector('.frame');
+    const load=id=>{fr.innerHTML=`<iframe src="${emb(id)}" title="${esc(it.title)}" allow="autoplay; fullscreen" allowfullscreen></iframe>`};
+    d.addEventListener('toggle',()=>{if(d.open){load((d.querySelector('.parts button[aria-pressed="true"]')||{dataset:{id:it.videos[0].id}}).dataset.id)}else fr.innerHTML=''});
+    d.querySelectorAll('.parts button').forEach(b=>b.onclick=()=>{d.querySelectorAll('.parts button').forEach(y=>y.setAttribute('aria-pressed',y===b));load(b.dataset.id)});
+    g.appendChild(d);
+  });
+  works.appendChild(g);
+});
+</script>
+</body>
+</html>
