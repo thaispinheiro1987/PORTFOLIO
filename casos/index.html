@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thaís Pinheiro</title>
+<meta name="description" content="Thaís Pinheiro, roteirista e pesquisadora de personagem na TV Globo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&family=Archivo:wght@400;500;600&display=swap">
+<style>
+/* Layout: a creative-profile page. Sticky profile column on the left, a grid of poster-like case covers on the right; each cover opens a full case study (context, video, story, file card). */
+:root{
+  --bg:#f8f6f1; --panel:#ffffff; --ink:#1b1e1c; --muted:#5f645f; --line:#e2ddd2; --soft:#f0ece3;
+  --cream:#f2ede3; --forest:#143a2d; --gold:#e0a126; --leaf:#2d8650; --link:#1d4fd8;
+  --c-a1:#2b1052; --c-a2:#4a1f86; --c-ak:#c9b4ff;
+  --c-b1:#123629; --c-b2:#1d5640; --c-bk:#e9b23a;
+  --c-c1:#1546c9; --c-c2:#5a3cf0; --c-ck:#d9e3ff;
+  --serif:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --mono:"Courier Prime","Courier New",ui-monospace,monospace;
+  --sans:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111312; --panel:#181b19; --ink:#ecebe6; --muted:#a3a8a3; --line:#2a2e2b; --soft:#1f2320;
+  --cream:#17201b; --forest:#0d2a20; --gold:#f0b23a; --leaf:#5fcf8c; --link:#8fb0ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111312; --panel:#181b19; --ink:#ecebe6; --muted:#a3a8a3; --line:#2a2e2b; --soft:#1f2320;
+  --cream:#17201b; --forest:#0d2a20; --gold:#f0b23a; --leaf:#5fcf8c; --link:#8fb0ff; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.g{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.k{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+
+/* banner */
+.banner{height:clamp(150px,22vw,260px);display:grid;grid-template-columns:repeat(9,minmax(0,1fr));overflow:hidden;background:var(--forest)}
+.banner img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.55;mix-blend-mode:luminosity}
+
+/* layout */
+.wrap{max-width:1380px;margin:0 auto;display:grid;grid-template-columns:340px minmax(0,1fr);gap:56px}
+.side{margin-top:-84px;position:relative}
+.side-in{position:sticky;top:24px;display:flex;flex-direction:column;gap:22px;padding-bottom:40px}
+.avatar{width:156px;height:156px;border-radius:50%;object-fit:cover;object-position:center 22%;border:5px solid var(--bg);box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.side h1{font-family:var(--sans);font-weight:600;font-size:2rem;line-height:1.1;letter-spacing:-.01em;margin:0}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.facts li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;font-size:1.02rem}
+.facts svg{width:18px;height:18px;margin-top:4px;stroke:var(--muted);fill:none;stroke-width:1.6}
+.now{background:var(--soft);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px}
+.now svg{width:18px;height:18px;margin-top:3px;stroke:var(--leaf);fill:none;stroke-width:1.8}
+.now b{display:block;font-weight:600}
+.now span{color:var(--muted);font-size:.92rem}
+.cta{display:flex;flex-direction:column;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:13px 18px;font:600 1rem var(--sans);cursor:pointer;text-decoration:none}
+.btn.p{background:var(--forest);color:#fff}
+.btn.p:hover{background:var(--leaf)}
+.btn.s{background:var(--panel);color:var(--ink);border:1px solid var(--line)}
+.btn.s:hover{border-color:var(--ink)}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.box h2{font-size:1.05rem;font-weight:600;margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.kv{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;font-size:.95rem}
+.kv span:nth-child(odd){color:var(--muted)}
+.kv span:nth-child(even){font-weight:600;user-select:all;text-align:right;overflow-wrap:anywhere}
+.sh{font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.about p{margin:0 0 .9em;font-size:1.02rem}
+.about.clamp p:not(:first-child){display:none}
+.more{background:none;border:0;padding:0;color:var(--muted);font:500 .98rem var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.more:hover{color:var(--ink)}
+
+/* main */
+main{padding-top:30px;padding-bottom:60px;min-width:0}
+.tabs{display:flex;gap:28px;border-bottom:1px solid var(--line);margin-bottom:30px;overflow-x:auto}
+.tabs button{background:none;border:0;padding:12px 0;font:600 1.05rem var(--sans);color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.card{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:340px;padding:28px 28px 24px;border:0;border-radius:6px;overflow:hidden;cursor:pointer;text-align:left;color:#fff;font:inherit;
+  background:linear-gradient(135deg,var(--c1),var(--c2));transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.5)}
+.card .ph{position:absolute;inset:0 0 0 45%;background-size:cover;background-position:center}
+.card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;mix-blend-mode:luminosity;mask-image:linear-gradient(90deg,transparent,#000 60%)}
+.card>*{position:relative}
+.card .k{color:var(--kk)}
+.card .k::before{content:"● ";font-size:.7em;vertical-align:.15em}
+.card h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,2.6vw,2.6rem);line-height:1.05;margin:0}
+.card .sub{font-family:var(--serif);font-style:italic;color:var(--kk);font-size:1.12rem;margin:10px 0 0}
+.card .d{font-size:.95rem;opacity:.86;margin:12px 0 0;max-width:34em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:.9rem;border-top:1px solid rgba(255,255,255,.22);padding-top:14px}
+.card .foot b{font-weight:600}
+.card .foot span{opacity:.8}
+
+.traj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.traj ol{list-style:none;margin:0;padding:0}
+.traj li{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.traj .n{font-family:var(--serif);font-weight:700;font-size:1.7rem;line-height:1;color:var(--gold)}
+.traj .w{font-family:var(--serif);font-size:1.35rem;line-height:1.15}
+.traj .r{color:var(--muted);font-size:.95rem}
+.traj .d{font-family:var(--mono);font-size:.82rem;color:var(--leaf);font-weight:700}
+.stat{background:var(--forest);color:#fff;border-radius:6px;padding:30px 30px 26px;align-self:start}
+.stat .k{color:var(--gold)}
+.stat .row{display:flex;align-items:baseline;gap:14px;margin-top:18px}
+.stat .row b{font-family:var(--serif);font-size:3.2rem;line-height:1;color:var(--gold);font-weight:700}
+.stat .row span{font-size:1.05rem}
+.stat p{font-family:var(--serif);font-style:italic;opacity:.85;margin:24px 0 0}
+.stat .edu{border-top:1px solid rgba(255,255,255,.2);margin-top:22px;padding-top:16px;font-size:.92rem;opacity:.9}
+.photos{columns:3 220px;column-gap:14px}
+.photos img{display:block;width:100%;margin:0 0 14px;border-radius:4px;break-inside:avoid}
+
+/* case study */
+dialog{border:0;padding:0;margin:0;width:100%;max-width:100%;height:100%;max-height:100%;background:var(--cream);color:var(--ink)}
+dialog::backdrop{background:rgba(10,12,11,.7)}
+.close{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));z-index:5;width:46px;height:46px;border-radius:50%;border:0;background:#111;color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.cs-hero{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;padding-block:84px 72px}
+.cs-in{max-width:1120px;margin:0 auto}
+.cs-hero .k{color:var(--kk)}
+.cs-hero h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,7vw,5.6rem);line-height:1.02;margin:22px 0 10px;text-wrap:balance}
+.cs-hero .sub{font-family:var(--serif);font-style:italic;color:var(--kk);font-size:clamp(1.3rem,2.6vw,2rem);margin:0}
+.cs-hero .lead{font-size:1.18rem;max-width:44em;margin:26px 0 0;opacity:.92}
+.cs-hero .meta{display:flex;flex-wrap:wrap;gap:20px 56px;margin-top:40px}
+.cs-hero .meta div{display:flex;flex-direction:column;gap:2px}
+.cs-hero .meta .k{font-size:.74rem}
+.cs-sec{padding-block:64px;border-bottom:1px solid var(--line)}
+.cs-sec>.cs-in>.k{color:var(--leaf)}
+.cs-sec h3{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;margin:10px 0 24px;color:var(--forest)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cs-sec h3{color:var(--ink)}}
+:root[data-theme="dark"] .cs-sec h3{color:var(--ink)}
+.vwrap{position:relative;aspect-ratio:16/9;background:#000;border-radius:6px;overflow:hidden}
+.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.parts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.parts button{border:1px solid var(--forest);background:transparent;color:var(--ink);border-radius:999px;padding:6px 14px;font:600 .88rem var(--sans);cursor:pointer}
+.parts button[aria-pressed="true"]{background:var(--forest);color:#fff}
+.two{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:start}
+.story{font-size:1.2rem;line-height:1.75;margin:0;max-width:40em}
+.fc{background:var(--forest);color:#fff;border-radius:8px;padding:28px 28px 24px}
+.fc .k{color:var(--gold)}
+.fc dl{margin:18px 0 0;display:grid;gap:14px}
+.fc dt{font-family:var(--mono);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
+.fc dd{margin:0;font-family:var(--serif);font-size:1.25rem;line-height:1.2}
+.fc dd b{color:var(--gold);font-weight:700}
+.nav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.nav button{background:none;border:0;padding:0;text-align:left;cursor:pointer;color:var(--ink);font:inherit;max-width:46%}
+.nav button:last-child{text-align:right;margin-left:auto}
+.nav .k{color:var(--leaf);display:block}
+.nav b{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1.1}
+.nav button:hover b{text-decoration:underline;text-underline-offset:4px}
+
+footer{border-top:1px solid var(--line);padding-block:24px 34px;color:var(--muted);font-size:.88rem;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;max-width:1380px;margin:0 auto}
+
+@media (max-width:1020px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:10px}
+  .side-in{position:static}
+  .grid,.traj,.two{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:620px){
+  .banner{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .banner img:nth-child(n+6){display:none}
+  .avatar{width:124px;height:124px}
+  .side{margin-top:-64px}
+  .card{min-height:300px;padding:22px}
+  .cs-hero{padding-block:72px 52px}
+  .cs-sec{padding-block:48px}
+  .nav button{max-width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="banner" id="banner" aria-hidden="true"></div>
+
+<div class="g">
+<div class="wrap">
+  <aside class="side">
+    <div class="side-in">
+      <img class="avatar" src="../assets/img/foto-01.jpg" alt="Thaís Pinheiro">
+      <h1 id="nm"></h1>
+      <ul class="facts">
+        <li><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 3v4M16 3v4M4 10h16"/></svg><span>Roteirista e pesquisadora de personagem</span></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span>São Paulo, Brasil</span></li>
+        <li><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 21h8M12 18v3"/></svg><span>20 anos de carreira, 10 na TV Globo</span></li>
+      </ul>
+      <div class="now"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg><div><b>Atualmente na TV Globo</b><span>Em Família com Eliana (desde dez 2025)</span></div></div>
+      <div class="cta">
+        <button class="btn p" type="button" id="cp">Copiar e-mail</button>
+        <a class="btn s" id="wa" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+      <div class="box"><h2>Contato</h2><div class="kv"><span>E-mail</span><span id="em"></span><span>Telefone</span><span id="tel"></span></div></div>
+      <div>
+        <div class="sh">Sobre mim</div>
+        <div class="about clamp" id="about"></div>
+        <button class="more" type="button" id="mb">Ver mais <span aria-hidden="true">⌄</span></button>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-t="trabalhos" id="t-trabalhos">Trabalhos</button>
+      <button role="tab" aria-selected="false" data-t="trajetoria" id="t-trajetoria">Trajetória</button>
+      <button role="tab" aria-selected="false" data-t="bastidores" id="t-bastidores">Bastidores</button>
+    </div>
+    <div role="tabpanel" id="p-trabalhos"><div class="grid" id="grid"></div></div>
+    <div role="tabpanel" id="p-trajetoria" hidden><div class="traj"><ol id="tl"></ol><div class="stat" id="stat"></div></div></div>
+    <div role="tabpanel" id="p-bastidores" hidden><div class="photos" id="photos"></div></div>
+  </main>
+</div>
+<footer><span>© Thaís Pinheiro</span><span>Roteirista e pesquisadora de personagem</span></footer>
+</div>
+
+<dialog id="cs"><button class="close" type="button" id="cl" aria-label="Fechar">✕</button><div id="csb"></div></dialog>
+
+<script src="../assets/data.js"></script>
+<script>
+const P=window.PORTFOLIO,$=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const thumb=id=>`https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
+const emb=id=>`https://drive.google.com/file/d/${id}/preview`;
+const pal=k=>`--c1:var(--c-${k}1);--c2:var(--c-${k}2);--kk:var(--c-${k}k)`;
+
+$('nm').textContent=P.name;
+$('banner').innerHTML=P.photos.map(p=>`<img src="../assets/img/${p.src}" alt="" style="object-position:${p.pos}">`).join('');
+$('about').innerHTML=P.about.map(p=>`<p>${p}</p>`).join('');
+$('mb').onclick=()=>{const a=$('about');const c=a.classList.toggle('clamp');$('mb').innerHTML=c?'Ver mais <span aria-hidden="true">⌄</span>':'Ver menos <span aria-hidden="true">⌃</span>'};
+$('em').textContent=P.contact.email;$('tel').textContent=P.contact.phone;$('wa').href=P.contact.whatsapp;
+$('cp').onclick=()=>{const b=$('cp');const ok=()=>{b.textContent='E-mail copiado';setTimeout(()=>b.textContent='Copiar e-mail',1800)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents($('em'));getSelection().removeAllRanges();getSelection().addRange(r);b.textContent='E-mail selecionado';setTimeout(()=>b.textContent='Copiar e-mail',1800)};
+  try{navigator.clipboard.writeText(P.contact.email).then(ok,sel)}catch(e){sel()}};
+
+// tabs
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  document.querySelectorAll('[role=tabpanel]').forEach(p=>p.hidden=p.id!=='p-'+b.dataset.t);
+});
+
+// trajetória
+$('tl').innerHTML=P.timeline.map((t,i)=>`<li><span class="n">${String(i+1).padStart(2,'0')}</span><div><div class="d">${esc(t.when)}</div><div class="w">${esc(t.what)}</div><div class="r">${esc(t.role)}</div></div></li>`).join('');
+const total=P.programs.reduce((a,p)=>a+p.items.length,0);
+$('stat').innerHTML=`<div class="k">Em números</div>
+  <div class="row"><b>20</b><span>anos de carreira</span></div>
+  <div class="row"><b>10</b><span>anos na TV Globo</span></div>
+  <div class="row"><b>3</b><span>programas de domingo</span></div>
+  <p>Do jornalismo impresso aos programas de auditório, passando pela assessoria de imprensa de TV.</p>
+  <div class="edu">${P.education.map(e=>`<b>${esc(e.course)}</b><br>${esc(e.where)}, ${esc(e.when)}`).join('<br><br>')}</div>`;
+$('photos').innerHTML=P.photos.map(p=>`<img src="../assets/img/${p.src}" alt="" loading="lazy">`).join('');
+
+// cards
+const all=[];P.programs.forEach(pg=>pg.items.forEach(it=>all.push({pg,it})));
+const years=pg=>pg.years.replace(/[a-zç]+ /g,'').replace(' – ','–');
+const grid=$('grid');
+all.forEach((x,i)=>{
+  const {pg,it}=x;const b=document.createElement('button');b.type='button';b.className='card';b.setAttribute('style',pal(pg.key));
+  b.innerHTML=`<span class="ph"><img src="${thumb(it.videos[0].id)}" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+  <span><span class="k">${esc(it.kicker)} · ${esc(years(pg))}</span><h3 style="margin-top:22px">${esc(it.title)}</h3><p class="sub">${esc(pg.name)}</p><p class="d">${esc(it.summary)}</p></span>
+  <span class="foot"><b>Ver estudo de caso →</b><span>${it.videos.length>1?it.videos.length+' vídeos':'1 vídeo'}</span></span>`;
+  b.querySelector('img').onerror=e=>e.target.remove();
+  b.onclick=()=>openCase(i);
+  grid.appendChild(b);
+});
+
+// case study
+const dlg=$('cs'),csb=$('csb');
+function openCase(i){
+  const {pg,it}=all[i];dlg.setAttribute('style',pal(pg.key));
+  const prev=all[(i-1+all.length)%all.length],next=all[(i+1)%all.length];
+  const parts=it.videos.length>1?`<div class="parts">${it.videos.map((v,k)=>`<button type="button" data-id="${v.id}" aria-pressed="${!k}">${esc(v.label)}</button>`).join('')}</div>`:'';
+  csb.innerHTML=`
+  <header class="cs-hero g"><div class="cs-in">
+    <div class="k">${esc(it.kicker)} · ${esc(years(pg))}</div>
+    <h2>${esc(it.title)}</h2><p class="sub">${esc(pg.name)}</p>
+    <p class="lead">${esc(it.summary)}</p>
+    <div class="meta"><div><span class="k">Programa</span><span>${esc(pg.name)}</span></div><div><span class="k">Quadro</span><span>${esc(it.kicker)}</span></div><div><span class="k">Período</span><span>${esc(pg.years)}</span></div></div>
+  </div></header>
+  <section class="cs-sec g"><div class="cs-in"><div class="k">No ar</div><h3>O resultado</h3><div class="vwrap"><iframe src="${emb(it.videos[0].id)}" title="${esc(it.title)}" allow="autoplay; fullscreen" allowfullscreen></iframe></div>${parts}</div></section>
+  ${it.more?`<section class="cs-sec g"><div class="cs-in"><div class="k">Ponto de partida</div><h3>Bastidores da pesquisa</h3>
+    <div class="two"><p class="story">${esc(it.more)}</p>
+    <aside class="fc"><div class="k">Ficha</div><dl><dt>Programa</dt><dd>${esc(pg.name)}</dd><dt>Quadro</dt><dd>${esc(it.kicker)}</dd><dt>Material</dt><dd><b>${it.videos.length}</b> ${it.videos.length>1?'vídeos':'vídeo'} no ar</dd></dl></aside></div></div></section>`:''}
+  <section class="cs-sec g"><div class="cs-in nav">
+    <button type="button" data-i="${(i-1+all.length)%all.length}"><span class="k">← Anterior</span><b>${esc(prev.it.title)}</b></button>
+    <button type="button" data-i="${(i+1)%all.length}"><span class="k">Próximo →</span><b>${esc(next.it.title)}</b></button>
+  </div></section>`;
+  csb.querySelectorAll('.parts button').forEach(b=>b.onclick=()=>{csb.querySelector('iframe').src=emb(b.dataset.id);csb.querySelectorAll('.parts button').forEach(y=>y.setAttribute('aria-pressed',y===b))});
+  csb.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>openCase(+b.dataset.i));
+  if(!dlg.open)dlg.showModal();dlg.scrollTop=0;
+}
+$('cl').onclick=()=>dlg.close();
+dlg.addEventListener('close',()=>{csb.innerHTML=''});
+</script>
+</body>
+</html>
