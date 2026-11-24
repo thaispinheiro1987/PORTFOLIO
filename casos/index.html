@@ -366,7 +366,7 @@ function openCase(i){
   <section class="cs-sec g"><div class="cs-in"><div class="two">
     <div class="tcol"><div class="k">Ponto de partida</div><h3>Bastidores da pesquisa</h3><p class="story">${esc(it.more||it.summary)}</p></div>
     <div class="vcol"><div class="k">No ar</div><div class="vwrap"><iframe src="${emb(it.videos[0].id)}" title="${esc(it.title)}" allow="autoplay; fullscreen" allowfullscreen></iframe></div>${parts}
-    <aside class="fc"><div class="k">Ficha</div><dl><dt>Programa</dt><dd>${esc(pg.name)}</dd><dt>Quadro</dt><dd>${esc(it.kicker)}</dd><dt>Material</dt><dd><b>${it.videos.length}</b> ${it.videos.length>1?'vídeos':'vídeo'} no ar</dd></dl></aside></div>
+    <aside class="fc"><div class="k">Ficha</div><dl><dt>Programa</dt><dd>${esc(pg.name)}</dd><dt>Quadro</dt><dd>${esc(it.kicker)}</dd></dl></aside></div>
   </div></div></section>
   <section class="cs-sec g"><div class="cs-in nav">
     <button type="button" data-i="${(i-1+all.length)%all.length}"><span class="k">← Anterior</span><b>${esc(prev.it.title)}</b></button>
